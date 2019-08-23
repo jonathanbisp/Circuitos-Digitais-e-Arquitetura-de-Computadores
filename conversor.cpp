@@ -52,6 +52,8 @@ int main(){
             //PARA REDUZIR O CODIGO, É CHAMADO O RETORNO DE HEXTODEC, QUE É UM INTEIRO EQUIVALENTE, EM SEGUIDA É UTILIIADO COMO PARAMETRO
             toDec = hexToDec(Hex);
             printf("\n        Seu número em decimal é: %d\n",toDec);
+
+            //CHAMA AS FUNÇÕES DE CONVERSAO, UTILIZANDO TODEC COMO PARAMETRO
             decToBin(toDec);
             decToBin1(toDec);
             decToBin2(toDec);
@@ -68,6 +70,8 @@ int main(){
             //COMO NO CASO ACIMA, É UTILIZADO PARA REDUZIR O CODIGO, RETORNANDO UM INTEIRO EQUIVALENTE QUE PODE SER UTILIZADO COMO PARAMETRO
             bindec = binToDec(binarios);
             printf("\n        Seu número em decimal é: %d",bindec);
+
+            //CHAMA AS FUNÇÕES DE CONVERSAO, UTILIZANDO BINDEC COMO PARAMETRO
             decToHex(bindec);
             decToBin1(bindec);
             decToBin2(bindec);
