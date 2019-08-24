@@ -297,7 +297,7 @@ int hexToDec(char Hex[5]){
         inter=1;
     }
 
-    //POR ALGUM MOTIVO EU TIVE QUE FAZER ISSO POR QUE TAVA SAINDO AO CONTRARIO.
+    /*POR ALGUM MOTIVO EU TIVE QUE FAZER ISSO POR QUE TAVA SAINDO AO CONTRARIO.*/
     aux=hex[1];
     hex[1]=hex[4];
     hex[4]=aux;
