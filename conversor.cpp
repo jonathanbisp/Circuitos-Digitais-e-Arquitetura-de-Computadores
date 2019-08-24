@@ -10,9 +10,9 @@ int decToBin(int Dec);
 int decToBin1(int Dec);
 int decToBin2(int Dec);
 int hexToDec(char Hex[5]);
-int binToDec(char binarios[16]);
-int bin1ToDec();
-int bin2ToDec();
+int binToDec(char Bin[16]);
+int bin1ToDec(char Bin1[16]);
+int bin2ToDec(char Bin2[16]);
 
 
 int main(){
@@ -61,14 +61,14 @@ int main(){
             break;
 
         case 3:
-
+            char bin0[16];
             //EXPLICAÇÃO DO FUNCIONAMENTO E LIMITAÇÕES DO ALGORITMO
-            printf("\n    Para o bom funcionamento dessa função,\n    Foi colocado um limite que permite até os números \'1111111111111111\' e \'0111111111111111\'.\n    Pois, o número 0111111111111111 vai até o Decimal 32767, limite no preenchimento de 15bits.\n    Deixando assim, um livre um bit para o sinal magnitude.\n    Se for utilizar apenas um número exemplo: \'1\', coloque quartoze 0 a frente e o sinal de magnitude,\n    Sendo que deve utilizar o 0 para positivo e 1 para negativo, exemplo: \'1000000000000011\' para \'-3\'\n    Agora que já deixamos claro, Digite o seu numero: ");      char binarios[16];
-            scanf("%s",binarios);
+            printf("\n    Para o bom funcionamento dessa função,\n    Foi colocado um limite que permite até os números \'1111111111111111\' e \'0111111111111111\'.\n    Pois, o número 0111111111111111 vai até o Decimal 32767, limite no preenchimento de 15bits.\n    Deixando assim, um livre um bit para o sinal magnitude.\n    Se for utilizar apenas um número exemplo: \'1\', coloque quartoze 0 a frente e o sinal de magnitude,\n    Sendo que deve utilizar o 0 para positivo e 1 para negativo, exemplo: \'1000000000000011\' para \'-3\'\n    Agora que já deixamos claro, Digite o seu numero: ");
+            scanf("%s",bin0);
             int bindec;
 
             //COMO NO CASO ACIMA, É UTILIZADO PARA REDUZIR O CODIGO, RETORNANDO UM INTEIRO EQUIVALENTE QUE PODE SER UTILIZADO COMO PARAMETRO
-            bindec = binToDec(binarios);
+            bindec = binToDec(bin0);
             printf("\n        Seu número em decimal é: %d",bindec);
 
             //CHAMA AS FUNÇÕES DE CONVERSAO, UTILIZANDO BINDEC COMO PARAMETRO
@@ -79,8 +79,38 @@ int main(){
             break;
 
         case 4:
+            //EXPLICAÇÃO DO FUNCIONAMENTO E LIMITAÇÕES DO ALGORITMO
+            printf("\n    Para o bom funcionamento dessa função,\n    Foi colocado um limite que permite até os números \'1111111111111111\' e \'0111111111111111\'.\n    Pois, o número 0111111111111111 vai até o Decimal 32767, limite no preenchimento de 15bits.\n    Deixando assim, um livre um bit para o sinal magnitude.\n    Se for utilizar apenas um número exemplo: \'1\', coloque quartoze 0 a frente e o sinal de magnitude,\n    Sendo que deve utilizar o 0 para positivo e 1 para negativo, exemplo: \'1000000000000011\' para \'3\'\n    Agora que já deixamos claro, Digite o seu numero: ");
+            char bin1[16];
+            scanf("%s",bin1);
+            int bin1dec;
+
+            //COMO NO CASO ACIMA, É UTILIZADO PARA REDUZIR O CODIGO, RETORNANDO UM INTEIRO EQUIVALENTE QUE PODE SER UTILIZADO COMO PARAMETRO
+            bin1dec = bin1ToDec(bin1);
+            printf("\n        Seu número em decimal é: %d",bin1dec);
+
+            //CHAMA AS FUNÇÕES DE CONVERSAO, UTILIZANDO BINDEC COMO PARAMETRO
+            decToHex(bin1dec);
+            decToBin(bin1dec);
+            decToBin2(bin1dec);
+            printf("\n\n");
             break;
         case 5:
+            //EXPLICAÇÃO DO FUNCIONAMENTO E LIMITAÇÕES DO ALGORITMO
+            printf("\n    Para o bom funcionamento dessa função,\n    Foi colocado um limite que permite até os números \'1111111111111111\' e \'0111111111111111\'.\n    Pois, o número 0111111111111111 vai até o Decimal 32767, limite no preenchimento de 15bits.\n    Deixando assim, um livre um bit para o sinal magnitude.\n    Se for utilizar apenas um número exemplo: \'1\', coloque quartoze 0 a frente e o sinal de magnitude,\n    Sendo que deve utilizar o 0 para positivo e 1 para negativo, exemplo: \'1000000000000011\' para \'3\'\n    Agora que já deixamos claro, Digite o seu numero: ");
+            char bin2[16];
+            scanf("%s",bin2);
+            int bin2dec;
+
+            //COMO NO CASO ACIMA, É UTILIZADO PARA REDUZIR O CODIGO, RETORNANDO UM INTEIRO EQUIVALENTE QUE PODE SER UTILIZADO COMO PARAMETRO
+            bin2dec = bin2ToDec(bin2);
+            printf("\n        Seu número em decimal é: %d",bin2dec);
+
+            //CHAMA AS FUNÇÕES DE CONVERSAO, UTILIZANDO BINDEC COMO PARAMETRO
+            decToHex(bin2dec);
+            decToBin(bin2dec);
+            decToBin1(bin2dec);
+            printf("\n\n");
             break;
     }
     system("PAUSE");
@@ -150,10 +180,10 @@ int decToBin(int Dec){
         bin1[i]=resto+48;
     }
 
-    printf("        Seu número em binario é:");
+    printf("        Seu número em binario é: ");
 
   //IMPRIME AO CONTRARIO PARA ORDENAR CORRETAMENTE
-    for(int j = 16; j>=0; j--){
+    for(int j = 15; j>=0; j--){
         printf("%c", bin1[j]);
     }
     printf("\n");
@@ -318,12 +348,12 @@ int hexToDec(char Hex[5]){
     return total;
 }
 
-int binToDec(char binarios[16]){
+int binToDec(char Bin[16]){
 
     //INICIALIZAÇÃO DOS VARIAVEIS, E PEGANDO O PARAMETRO
     int total=0,aux,j=0;
     char bin[16];
-    strcpy(bin,binarios);
+    strcpy(bin,Bin);
 
     //CONVERTE DE BINARIO PARA DECIMAL
     for(int i=15; i>0;i--){
@@ -340,10 +370,138 @@ int binToDec(char binarios[16]){
     return total;
 }
 
-int bin1ToDec(){
-  return 0;
+int bin1ToDec(char Bin1[16]){
+
+    //INICIALIZAÇÃO DOS VARIAVEIS, E PEGANDO O PARAMETRO
+    int total=0,j=0;
+    char bin1[16]={0};
+    strcpy(bin1,Bin1);
+
+    //INVERTE OS VALORES E EM SEGUIDA OS MULTIPLICA LOGO EM SEGUIDA
+    for(int i=15; i>0;i--){
+        if(bin1[i]=='0'){
+            bin1[i]='1';
+        }else if(bin1[i]=='1'){
+            bin1[i]='0';
+        }
+        if(bin1[i]=='1'){
+            total += pow(2,j);
+        }
+        j++;
+    }
+
+    //VERIFICA SE O PRIMEIRO DIGITO É 1 POR CONTA DO SINAL DE AMPLITUDE E RETORNA O TOTAL POSITIVO OU NEGATIVO
+    if(bin1[0]=='0'){
+        return -1*total;
+    }
+    return total;
 }
 
-int bin2ToDec(){
-  return 0;
+int bin2ToDec(char Bin2[16]){
+
+    //ATRIBUIÇÃO DE VALORES
+    int total=0,j=0;
+    char bin2[16]={0};
+    strcpy(bin2,Bin2);
+
+    //NESSE MOMENTO AQUI MEU CEREBRO TAVA FRITANDO E EU NAO TAVA CONSEGUINDO MAIS IMAGINAR UM FOR QUE RESOLVESE ISSO
+    //BASICAMENTE CAMINHA ENTRE O VETOR TROCA O VALOR ATUAL SE NECESSARIO, OLHA PRO PROXIMO E DECIDE SE CONTINUA OU PARA
+    if(bin2[15]=='1'){
+        bin2[15]='0';
+    }else if(bin2[15]=='0'){
+        bin2[15]='1';
+        if(bin2[14]=='1'){
+            bin2[14]='0';
+        }else if(bin2[14]=='0'){
+                bin2[14]='1';
+                if(bin2[13]=='1'){
+                    bin2[13]='0';
+                }else if(bin2[13]=='0'){
+                    bin2[13]='1';
+                    if (bin2[12]=='1'){
+                        bin2[12]='0';
+                    }else if (bin2[12]=='0'){
+                        bin2[12]='1';
+                        if (bin2[11]=='1'){
+                            bin2[11]='0';
+                        }else if (bin2[11]=='0'){
+                            bin2[11]='1';
+                            if (bin2[10]=='1'){
+                                bin2[10]='0';
+                            }else if(bin2[10]=='0'){
+                                bin2[10]='1';
+                                if (bin2[9]=='1'){
+                                    bin2[9]='0';
+                                }else if(bin2[9]=='0'){
+                                    bin2[9]='1';
+                                    if (bin2[8]=='1'){
+                                        bin2[8]='0';
+                                    }else if (bin2[8]=='0'){
+                                        bin2[8]='1';
+                                        if(bin2[7]=='1'){
+                                            bin2[7]='0';
+                                        }else if (bin2[7]=='0'){
+                                            bin2[7]='1';
+                                            if(bin2[6]=='1'){
+                                                bin2[6]='0';
+                                            }else if(bin2[6]=='0'){
+                                                bin2[6]='1';
+                                                if (bin2[5]=='1'){
+                                                    bin2[5]='0';
+                                                }else if (bin2[5]=='0'){
+                                                    bin2[5]='1';
+                                                    if (bin2[4]=='1'){
+                                                        bin2[4]='0';
+                                                    }else if(bin2[4]=='0'){
+                                                        bin2[4]='1';
+                                                        if(bin2[3]=='1'){
+                                                            bin2[3]='0';
+                                                        }else if(bin2[3]=='0'){
+                                                            bin2[3]='1';
+                                                            if (bin2[2]=='1'){
+                                                                bin2[2]='0';
+                                                            }else if (bin2[2]=='0'){
+                                                                bin2[2]='1';
+                                                                if (bin2[1]=='1'){
+                                                                    bin2[1]='0';
+                                                                }else if(bin2[1]=='0'){
+                                                                    bin2[1]='1';
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+    }
+
+    //INVERTE OS VALORES PARA ENCONTRAR O BINARIO DE COMPLEMENTO 1
+    for(int i=0; i<16;i++){
+        if(bin2[i]=='0'){
+            bin2[i]='1';
+        }else if(bin2[i]=='1'){
+            bin2[i]='0';
+        }
+    }
+
+    //CONVERTE PARA INTEIRO
+    for(int i=15;i>=1;i--){
+    if(bin2[i]=='1'){
+            total += pow(2,j);
+        }
+        j++;
+    }
+
+    //PERCEBE SE O RESULTADO VAI SER POSITIVO OU NEGATIVO
+    if(bin2[0]=='1'){
+        return -1*total;
+    }
+    return total;
 }
