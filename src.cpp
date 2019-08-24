@@ -22,7 +22,7 @@ int main(){
 
     int indice;
     printf("    Qual base você gostaria de converter? Digite o respectivo indice. \n");
-    printf("    1 - Decimal, 2 - Hexadecimal, 3 - Binario, 4 - Binario Complemento de 1 e 5 - Binario Complemento de 2. \n\n        ");
+    printf("    1 - Decimal, 2 - Hexadecimal, 3 - Binario, 4 - Binario Complemento de 1, 5 - Binario Complemento de 2. \n\n        ");
     scanf("%d", &indice);
 
     switch (indice){
@@ -97,7 +97,7 @@ int main(){
             break;
         case 5:
             //EXPLICAÇÃO DO FUNCIONAMENTO E LIMITAÇÕES DO ALGORITMO
-            printf("\n    Para o bom funcionamento dessa função,\n    Foi colocado um limite que permite até os números \'1111111111111111\' e \'0111111111111111\'.\n    Pois, o número 0111111111111111 vai até o Decimal 32767, limite no preenchimento de 15bits.\n    Deixando assim, um livre um bit para o sinal magnitude.\n    Se for utilizar apenas um número exemplo: \'1\', coloque quartoze 0 a frente e o sinal de magnitude,\n    Sendo que deve utilizar o 0 para positivo e 1 para negativo, exemplo: \'1000000000000011\' para \'3\'\n    Agora que já deixamos claro, Digite o seu numero: ");
+            printf("\n    Para o bom funcionamento dessa função,\n    Foi colocado um limite que permite até os números \'1111111111111111\' e \'0111111111111111\'.\n    Pois, o número 0111111111111111 vai até o Decimal 32767, limite no preenchimento de 15bits.\n    Deixando assim, um livre um bit para o sinal magnitude.\n    Se for utilizar apenas um número exemplo: \'1\', coloque quartoze 0 a frente e o sinal de magnitude,\n    Sendo que deve utilizar o 0 para positivo e 1 para negativo, exemplo: \'1111111111111101\' para \'3\'\n    Agora que já deixamos claro, Digite o seu numero: ");
             char bin2[16];
             scanf("%s",bin2);
             int bin2dec;
@@ -113,7 +113,7 @@ int main(){
             printf("\n\n");
             break;
     }
-    printf("Powered by: Jonathan Bispo");
+    printf("                Powered by: Jonathan Bispo\n\n");
     system("PAUSE");
 }
 
